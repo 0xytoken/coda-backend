@@ -90,11 +90,9 @@ function dataRecursion(
                                         coda.ValueType.Boolean },\n },\n`;
                   break;
                 case "object":
-                  code += `{ type: coda.ValueType.Object,
-                                        \n properties: {${dataRecursion(
-      value,
-      shouldIncludeEmptyArrays
-  )}},\n },\n },\n`;
+                  code += `{ type: coda.ValueType.Object, \n properties: 
+                          {${dataRecursion(value, shouldIncludeEmptyArrays)}}
+                          ,\n },\n },\n`;
                   break;
                 default:
                   code += "{type: ***TODO***}}\n";
