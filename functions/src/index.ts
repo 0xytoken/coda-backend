@@ -1,19 +1,9 @@
 import * as functions from "firebase-functions";
 import * as ax from "axios";
-// import * as address from "address";
 
 const axios = ax.default;
-// axios.defaults.timeout = 1000;
-
-/* const vpcConfigs: functions.RuntimeOptions = {
-  vpcConnector: "coda-ip-connector-1",
-  vpcConnectorEgressSettings: "ALL_TRAFFIC",
-  ingressSettings: "ALLOW_ALL",
-  // timeoutSeconds: 10,
-}; */
 
 exports.httpRequest = functions
-    // .runWith(vpcConfigs)
     .https.onRequest((req, res) => {
       try {
         const body = JSON.parse(req.body);
@@ -67,12 +57,6 @@ exports.jsonToCodaSchema = functions.https.onRequest((req, res) => {
   res.end(code);
 });
 
-/**
- * Add two numbers.
- * @param {number} data The first number.
- * @param {number} shouldIncludeEmptyArrays The second number.
- * @return {number} The sum of the two numbers.
- */
 function dataRecursion(
     data: object,
     shouldIncludeEmptyArrays: boolean
