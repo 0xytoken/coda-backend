@@ -100,13 +100,9 @@ function dataRecursion(
               }
             } else {
               if (value && Object.keys(value).find((val) => val.length > 0)) {
-                code += `${key}: 
-                                { type: coda.ValueType.Object, 
-                                    fromKey: "${key}",\n properties: 
-                                    {${dataRecursion(
-      value,
-      shouldIncludeEmptyArrays
-  )}}},`;
+                code += `${key}: { type: coda.ValueType.Object, 
+                  fromKey: "${key}", \n properties:{
+                    ${dataRecursion(value, shouldIncludeEmptyArrays)}}},`;
               }
             }
             break;
